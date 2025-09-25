@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=480, initial-scale=1, user-scalable=no">
+
+	<meta name="format-detection" content="telephone=no" />
+	
+	<!-- TODO: .css cleanup -->
+    <link type="text/css" rel="stylesheet" href="XstoreM_GWT.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <title>Xstore Debug</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    
+    <!-- Redirect any JavaScript errors to the console log -->
+    <script type="text/javascript">
+    window.onerror = function(message, url, lineNumber) {
+        console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+    }
+	</script>
+    
+    <script type="text/javascript" language="javascript">
+      __XSTOREM_DEBUG_MODE_FOR_DEV_ONLY__ = 'http';
+    </script>
+    
+    <script type="text/javascript" language="javascript" src="i18n.js"></script>
+    <script type="text/javascript" language="javascript" src="countryprops.js"></script>
+    <script type="text/javascript" language="javascript" src="version.js"></script>
+    <script type="text/javascript" language="javascript" src="qrcode.js"></script>
+    <script type="text/javascript" language="javascript" src="xmqrcode.js"></script>
+    <script type="text/javascript" language="javascript" src="cordova.js"></script>
+    <script type="text/javascript" language="javascript" src="xstorem_gwt/xstorem_gwt.nocache.js"></script>
+    
+    <!-- Callback to handle/detect Xstore Mobile being launched from another app -->
+    <script type="text/javascript">
+      var appLaunchedCallback;
+    
+      function handleOpenURL(url) {
+          setTimeout(function() {
+            appLaunchedCallback(url);
+          }, 0);
+       }
+    </script>
+
+  </head>
+
+  <body>
+    <div style="display: flex; flex-direction: column;">
+      <button id="debugBanner" style="position: absolute;z-index: 1000;bottom: 1px;margin-top: 4px;padding: 6px 8px 0px 8px;background: rgba(199, 70, 52, 0.75);color: rgb(192, 192, 192);align-self: center;border-radius: 15px; width: 130px; left: 50%; margin-left: -65px; font-size: 13pt; font-weight: bold; border: none;">DEBUG!!!</button>
+    </div>
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+    
+  </body>
+</html>

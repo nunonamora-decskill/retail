@@ -1,0 +1,2 @@
+serviceClass: com.microsretail.xstoremgwt.client.rpc.LogService
+path: D6153F16B631BB17D295B25A523ADC72.gwt.rpc

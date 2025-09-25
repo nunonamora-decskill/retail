@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+  <session-config>
+    <session-timeout>720</session-timeout>
+    <cookie-config>
+      <http-only>true</http-only>
+      <secure>true</secure>
+      <max-age>31536000</max-age>
+    </cookie-config>
+  </session-config>
+
+  <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>dtv.cheetah.CheetahWebApplicationContext</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>dtv.cheetah.CheetahContextListener</listener-class>
+  </listener>
+
+  <listener>
+   <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+  <filter>
+    <filter-name>SpringInjector</filter-name>
+    <filter-class>org.springframework.web.filter.RequestContextFilter</filter-class>
+    <init-param>
+      <param-name>threadContextInheritable</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>SpringInjector</filter-name>
+    <url-pattern>/xstorem_gwt/cheetah</url-pattern>
+    <url-pattern>/xstorem_gwt/information</url-pattern>
+    <url-pattern>/reports</url-pattern>
+    <url-pattern>/dtxws</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>cheetahGWTRPC</servlet-name>
+    <servlet-class>com.microsretail.xstoremgwt.server.rpc.CheetahServiceImpl</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>cheetahGWTRPC</servlet-name>
+    <url-pattern>/xstorem_gwt/cheetah</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>informationGWTRPC</servlet-name>
+    <servlet-class>com.microsretail.xstoremgwt.server.rpc.InformationServiceImpl</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>informationGWTRPC</servlet-name>
+    <url-pattern>/xstorem_gwt/information</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cheetahImages</servlet-name>
+    <servlet-class>dtv.cheetah.CheetahImageServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>cheetahImages</servlet-name>
+    <url-pattern>/cheetahImages</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cheetahChartServlet</servlet-name>
+    <servlet-class>dtv.cheetah.CheetahHttpRequestHandlerServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>cheetahChartServlet</servlet-name>
+    <url-pattern>/cheetahCharts</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cheetahReportServlet</servlet-name>
+    <servlet-class>dtv.cheetah.CheetahHttpRequestHandlerServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>cheetahReportServlet</servlet-name>
+    <url-pattern>/reports</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cheetahSignatureServlet</servlet-name>
+    <servlet-class>dtv.cheetah.CheetahHttpRequestHandlerServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>cheetahSignatureServlet</servlet-name>
+    <url-pattern>/cheetahSignatureImage</url-pattern>
+  </servlet-mapping>
+    
+  <servlet>
+    <servlet-name>testconnect</servlet-name>
+    <servlet-class>dtv.cheetah.CheetahConnectionTestServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>testconnect</servlet-name>
+    <url-pattern>/testconnect</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>remoteLogService</servlet-name>
+    <servlet-class>com.microsretail.xstoremgwt.server.rpc.LogServiceImpl</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>remoteLogService</servlet-name>
+    <url-pattern>/xstorem_gwt/remote_log_service</url-pattern>
+  </servlet-mapping>
+
+<!-- TODO: can we conditionally enable dtxWSServlet only for extension stores?
+           We don't want this running in any home stores. -->
+  <servlet>
+    <servlet-name>dtxWSServlet</servlet-name>
+    <servlet-class>com.microsretail.xstoremgwt.server.dtxws.DtxWSServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>dtxWSServlet</servlet-name>
+    <url-pattern>/dtxws</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>wsAuthenticationFilter</filter-name>
+    <filter-class>dtv.util.net.filter.XstBasicAuthFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>wsAuthenticationFilter</filter-name>
+    <url-pattern>/dtxws</url-pattern>
+  </filter-mapping>
+
+<!-- DEPRECATED
+  <filter>
+    <filter-name>hardwareServiceAccessFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>hardwareServiceAccessFilter</filter-name>
+    <url-pattern>/xstorem_gwt/hardware</url-pattern>
+  </filter-mapping>
+-->
+
+  <filter>
+    <filter-name>electronGWTRPCFilter</filter-name>
+    <filter-class>com.microsretail.xstoremgwt.server.rpc.ElectronGWTRPCFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>electronGWTRPCFilter</filter-name>
+    <url-pattern>/xstorem_gwt/cheetah</url-pattern>
+    <url-pattern>/xstorem_gwt/information</url-pattern>
+    <url-pattern>/xstorem_gwt/remote_log_service</url-pattern>
+  </filter-mapping>
+
+<!-- DEPRECATED
+  <servlet>
+    <servlet-name>cheetahHardwareService</servlet-name>
+    <servlet-class>dtv.cheetah.hardware.service.CheetahHardwareServiceServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>cheetahHardwareService</servlet-name>
+    <url-pattern>/xstorem_gwt/hardware</url-pattern>
+  </servlet-mapping>
+-->
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>XstoreM_GWT.html</welcome-file>
+  </welcome-file-list>
+</web-app>

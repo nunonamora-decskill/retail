@@ -1,0 +1,7 @@
+# Module xstorem_gwt
+# RPC service class, partial path of RPC policy file
+com.microsretail.xstoremgwt.client.rpc.CheetahService, 5F99188583E6817467B6078AEC47BB4A.gwt.rpc
+com.microsretail.xstoremgwt.client.rpc.InformationService, 964FD9B657635FD06566E022DF29F13D.gwt.rpc
+com.microsretail.xstoremgwt.client.rpc.LogService, D6153F16B631BB17D295B25A523ADC72.gwt.rpc
+com.microsretail.xstoremgwt.client.debug.CheetahDebugService, C014DF833335D931C7901D369C1354A2.gwt.rpc
+com.googlecode.gwtphonegap.client.log.shared.PhoneGapLogService, B9202856D21A2114DA12878521A3BE77.gwt.rpc

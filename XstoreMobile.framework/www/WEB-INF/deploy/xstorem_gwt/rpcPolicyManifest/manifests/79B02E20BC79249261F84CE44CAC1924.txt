@@ -1,0 +1,2 @@
+serviceClass: com.microsretail.xstoremgwt.client.debug.CheetahDebugService
+path: C014DF833335D931C7901D369C1354A2.gwt.rpc

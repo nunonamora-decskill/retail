@@ -1,0 +1,2 @@
+serviceClass: com.microsretail.xstoremgwt.client.rpc.InformationService
+path: 964FD9B657635FD06566E022DF29F13D.gwt.rpc

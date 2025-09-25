@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-activityName="XstoreM" id="com.oracle.retail.xstore" version="21.0.3.45" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="CDVWebViewEngine">
+        <param name="ios-package" value="CDVWebViewEngine" />
+    </feature>
+    <feature name="LaunchScreen">
+        <param name="ios-package" value="CDVLaunchScreen" />
+    </feature>
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVWKInAppBrowser" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="CDVWKWebViewFileXhr">
+        <param name="ios-package" value="CDVWKWebViewFileXhr" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="MigrateLocalStorage">
+        <param name="ios-package" onload="true" value="MigrateLocalStorage" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="BarcodeScanner">
+        <param name="ios-package" value="CDVBarcodeScanner" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="ios-package" onload="true" value="Keyboard" />
+    </feature>
+    <feature name="hardware">
+        <param name="ios-package" value="CDVHardware" />
+    </feature>
+    <feature name="logging">
+        <param name="ios-package" value="CDVLogging" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>Xstore</name>
+    <description>
+       Xstore Mobile POS
+    </description>
+    <author href="http://www.oracle.com/">
+        Oracle Corporation
+    </author>
+    <content src="XstoreM_GWT.html" />
+    <access origin="https://*" />
+    <allow-navigation href="xstorecommerce://*" />
+    <allow-navigation href="xstoreextauth://*" />
+    <icon src="res/ios/icons/icon.png" />
+    <icon height="72" src="res/ios/icons/icon-72.png" width="72" />
+    <icon height="144" src="res/ios/icons/icon-72@2x.png" width="144" />
+    <splash src="res/ios/splash/Default@2x~universal~anyany.png" />
+    <hook src="scripts/ios/modify_project_config.sh" type="after_prepare" />
+    <hook src="scripts/ios/create_framework_target.js" type="after_prepare" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <preference name="MediaTypesRequiringUserActionForPlayback" value="none" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SuppressesLongPressGesture" value="false" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="FadeSplashScreen" value="false" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <preference name="deployment-target" value="14.0" />
+    <preference name="fullscreen" value="false" />
+    <preference name="KeyboardShrinksView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <!-- Custom native scanner bridge feature mapping -->
+    <feature name="lluNativeScanner">
+        <param name="ios-package" value="LluNativeScannerBridge" />
+        <param name="onload" value="true" />
+    </feature>
+
+</widget>

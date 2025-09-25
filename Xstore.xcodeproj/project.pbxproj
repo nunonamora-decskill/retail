@@ -1,0 +1,389 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		639CA4912C873A5A00B5DABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 639CA4902C873A5A00B5DABA /* Assets.xcassets */; };
+		639CA4972C873A5A00B5DABA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 639CA4962C873A5A00B5DABA /* main.m */; };
+		639CA4B02C873B7F00B5DABA /* XstoreMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639CA4AE2C873B7700B5DABA /* XstoreMobile.framework */; };
+		639CA4B12C873B7F00B5DABA /* XstoreMobile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 639CA4AE2C873B7700B5DABA /* XstoreMobile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		639CA4B62C873B9B00B5DABA /* www in Resources */ = {isa = PBXBuildFile; fileRef = 639CA4B22C873B9B00B5DABA /* www */; };
+		639CA4B72C873B9B00B5DABA /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = 639CA4B32C873B9B00B5DABA /* config.xml */; };
+		639CA4B82C873B9B00B5DABA /* CDVLaunchScreen.storyboardc in Resources */ = {isa = PBXBuildFile; fileRef = 639CA4B42C873B9B00B5DABA /* CDVLaunchScreen.storyboardc */; };
+		639CA4B92C873B9B00B5DABA /* Xstore-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 639CA4B52C873B9B00B5DABA /* Xstore-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		639CA4A12C873AB600B5DABA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				639CA4B12C873B7F00B5DABA /* XstoreMobile.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		639CA4812C873A5900B5DABA /* Xstore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xstore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		639CA4902C873A5A00B5DABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		639CA4962C873A5A00B5DABA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		639CA4AE2C873B7700B5DABA /* XstoreMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XstoreMobile.framework; sourceTree = "<group>"; };
+		639CA4B22C873B9B00B5DABA /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = XstoreMobile.framework/www; sourceTree = "<group>"; };
+		639CA4B32C873B9B00B5DABA /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = XstoreMobile.framework/config.xml; sourceTree = "<group>"; };
+		639CA4B42C873B9B00B5DABA /* CDVLaunchScreen.storyboardc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.storyboardc; name = CDVLaunchScreen.storyboardc; path = XstoreMobile.framework/CDVLaunchScreen.storyboardc; sourceTree = "<group>"; };
+		639CA4B52C873B9B00B5DABA /* Xstore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = "Xstore-Info.plist"; path = "XstoreMobile.framework/Xstore-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		639CA47E2C873A5900B5DABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639CA4B02C873B7F00B5DABA /* XstoreMobile.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		639CA4782C873A5900B5DABA = {
+			isa = PBXGroup;
+			children = (
+				639CA4B42C873B9B00B5DABA /* CDVLaunchScreen.storyboardc */,
+				639CA4B32C873B9B00B5DABA /* config.xml */,
+				639CA4B22C873B9B00B5DABA /* www */,
+				639CA4B52C873B9B00B5DABA /* Xstore-Info.plist */,
+				639CA4AE2C873B7700B5DABA /* XstoreMobile.framework */,
+				639CA4832C873A5900B5DABA /* Xstore */,
+				639CA4822C873A5900B5DABA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		639CA4822C873A5900B5DABA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				639CA4812C873A5900B5DABA /* Xstore.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		639CA4832C873A5900B5DABA /* Xstore */ = {
+			isa = PBXGroup;
+			children = (
+				639CA4902C873A5A00B5DABA /* Assets.xcassets */,
+				639CA4962C873A5A00B5DABA /* main.m */,
+			);
+			path = Xstore;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		639CA4802C873A5900B5DABA /* Xstore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 639CA49A2C873A5A00B5DABA /* Build configuration list for PBXNativeTarget "Xstore" */;
+			buildPhases = (
+				639CA47D2C873A5900B5DABA /* Sources */,
+				639CA47E2C873A5900B5DABA /* Frameworks */,
+				639CA47F2C873A5900B5DABA /* Resources */,
+				639CA4A12C873AB600B5DABA /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Xstore;
+			productName = Xstore;
+			productReference = 639CA4812C873A5900B5DABA /* Xstore.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		639CA4792C873A5900B5DABA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					639CA4802C873A5900B5DABA = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 639CA47C2C873A5900B5DABA /* Build configuration list for PBXProject "Xstore" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 639CA4782C873A5900B5DABA;
+			productRefGroup = 639CA4822C873A5900B5DABA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				639CA4802C873A5900B5DABA /* Xstore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		639CA47F2C873A5900B5DABA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639CA4B72C873B9B00B5DABA /* config.xml in Resources */,
+				639CA4B82C873B9B00B5DABA /* CDVLaunchScreen.storyboardc in Resources */,
+				639CA4B92C873B9B00B5DABA /* Xstore-Info.plist in Resources */,
+				639CA4B62C873B9B00B5DABA /* www in Resources */,
+				639CA4912C873A5A00B5DABA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		639CA47D2C873A5900B5DABA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639CA4972C873A5A00B5DABA /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		639CA4982C873A5A00B5DABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		639CA4992C873A5A00B5DABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		639CA49B2C873A5A00B5DABA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MWXA6ZD5K3;
+				Enable_Bitcode = No;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "XstoreMobile.framework/Xstore-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Xstore;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "To pair hardware with bluetooth";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan barcodes";
+				INFOPLIST_KEY_NSMainNibFile = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = CDVLaunchScreen.storyboardc;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rc.xstore.lululemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		639CA49C2C873A5A00B5DABA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MWXA6ZD5K3;
+				Enable_Bitcode = No;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "XstoreMobile.framework/Xstore-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Xstore;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "To pair hardware with bluetooth";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To scan barcodes";
+				INFOPLIST_KEY_NSMainNibFile = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = CDVLaunchScreen.storyboardc;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rc.xstore.lululemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		639CA47C2C873A5900B5DABA /* Build configuration list for PBXProject "Xstore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				639CA4982C873A5A00B5DABA /* Debug */,
+				639CA4992C873A5A00B5DABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		639CA49A2C873A5A00B5DABA /* Build configuration list for PBXNativeTarget "Xstore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				639CA49B2C873A5A00B5DABA /* Debug */,
+				639CA49C2C873A5A00B5DABA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 639CA4792C873A5900B5DABA /* Project object */;
+}

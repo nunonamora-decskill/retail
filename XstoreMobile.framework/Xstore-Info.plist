@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>xstorepos</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>xstorecommerce</string>
+		<string>xstoreextauth</string>
+	</array>
+	<key>MaglinQIPButtonStateLeft</key>
+	<integer>1</integer>
+	<key>MaglinQIPButtonStateRight</key>
+	<integer>2</integer>
+	<key>NSMainNibFile~ipad</key>
+	<string></string>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.verifone.pmr.xpi</string>
+		<string>com.verifone.pmr.control</string>
+		<string>com.verifone.pmr.barcode</string>
+		<string>com.verifone.pmr.debug</string>
+		<string>com.verifone.pmr.zontalk</string>
+		<string>com.verifone.PWMRDA</string>
+		<string>com.verifone.pmr2.com1</string>
+		<string>com.verifone.pmr2.control</string>
+		<string>com.verifone.pmr2.zontalk</string>
+		<string>com.verifone.pmr2.xpi</string>
+		<string>com.verifone.pmr2.barcode</string>
+		<string>com.verifone.pmr2.debug</string>
+		<string>com.motorolasolutions.CS4070_ssi</string>
+		<string>com.datecs.linea.pro.bar</string>
+	</array>
+	<key>XstoreMaxLogSizeInBytes</key>
+	<integer>10000000</integer>
+	<key>XstoreMaxNumberOfLogFiles</key>
+	<integer>3</integer>
+	<key>XstoreVMFPingIntervalInSeconds</key>
+	<integer>30</integer>
+</dict>
+</plist>

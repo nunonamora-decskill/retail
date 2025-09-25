@@ -1,0 +1,2 @@
+serviceClass: com.microsretail.xstoremgwt.client.rpc.CheetahService
+path: 5F99188583E6817467B6078AEC47BB4A.gwt.rpc

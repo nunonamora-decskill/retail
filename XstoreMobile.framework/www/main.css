@@ -1,0 +1,583 @@
+
+
+/* XXXXX part of MGWT2.0 refactoring; clean up / rename / consolidate the .css files in this dir.
+         Original file came from the mgwt 1.2 "theme".  These styles really just need directly
+         included into the main .html page, they're not so much for "themed widgets".
+         ( xstoremgwt/src/main/java/com/microsretail/xstoremgwt/client/theme/css/main.css )
+*/
+
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_Bd.woff") format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_BdIt.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_It.woff") format("woff");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_Lt.woff") format("woff");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_LtIt.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_Rg.woff") format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_SBd.woff") format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_SBdIt.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_ULt.woff") format("woff");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_ULtIt.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_XBd.woff") format("woff");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSans_XBdIt.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_Bd.woff") format("woff");
+  font-weight: 700;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_BdIt.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_It.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_Lt.woff") format("woff");
+  font-weight: 300;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_LtIt.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "Oracle Sans";
+  src: url("fonts/OracleSansCd_Rg.woff") format("woff");
+  font-weight: 400;
+  font-stretch: condensed;
+}
+
+
+* {
+  font-family: "Oracle Sans", Arial Unicode MS, Arial, sans-serif;
+}
+
+body {
+  background-color: black;
+  background-size: 100%;
+  background-repeat: none;
+  background-image: none;
+  min-height: 100%;
+  -ms-content-zooming: none;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {  
+  display: none;
+}
+
+/* see RXPS-23335 for details on this selector */
+body.portrait > div[aria-hidden=true] {
+  display: none;
+}
+
+.splash {
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: round;
+  background-color: black;
+  z-index: -10;
+}
+
+.splash[formfactor=TABLET] {
+  background-image: url('xstorem_gwt/images/2019_tablet_splash.jpg');
+}
+
+.splash[formfactor=HANDHELD] {
+  background-image: url('xstorem_gwt/images/2019_handheld_splash.jpg');
+}
+
+.loading {
+  top: 35%;
+  height: 60px;
+  position: relative;
+  background: #C74634 url(xstorem_gwt/images/xstorem-logo.png) no-repeat center;
+  animation: splashLoading 1.5s linear infinite;
+  width: 60px;
+  border-radius: 30px;
+}
+
+.splashOracleLogo {
+  background-image: url(xstorem_gwt/images/Oracle_RedTag.png);
+  height: 45px;
+  width: 45px;
+  bottom: 0px;
+  position: absolute;
+  right: 45px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.splashXstoreLogo {
+  background-image: url(xstorem_gwt/images/Xstore-Logo.png);
+  height: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: center;
+}
+
+.splashXstoreLogo[formfactor=HANDHELD] {
+  width: 50%;
+  top: 62%;
+}
+
+.splashXstoreLogo[formfactor=TABLET] {
+  width: 20%;
+  top: 50%;
+}
+
+@keyframes splashLoading {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.descriptionText {
+/*  padding-bottom: 18px;*/
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14pt;
+  font-style: normal;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.descriptionText:empty {
+  display: none;
+}
+
+.titleText {
+  padding-top: 5px;
+  font-size: 18pt;
+  width: 90%;
+}
+
+.titleText:empty {
+  display: none;
+  padding-top: 0px;
+}
+
+.configScreenButton:focus {
+  outline-style: groove;
+  outline-color: darkgray;
+  outline-width: 2px;
+}
+
+.oflPOSTransactions {
+  color: #312D2A;
+  background-color: #F0CD9B;
+  border-radius: 5px;
+  border: 1px solid #8B8580;
+}
+.oflPOSTransactionsReturn {
+  /* TODO get Oracle Redwood color for this */ 
+  background-color: #e09085;
+}
+.oflPOSTransactionsTender {
+  /* TODO get Oracle Redwood color for this */ 
+  background-color: lightgreen;
+}
+
+.oflPOSTable {
+  width: 100%;
+}
+.oflPOSTable td {
+  padding-top: 12px;
+  padding-bottom: 6px;
+  border-bottom-color: #a0a0a0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.oflPOSTable td[renderAs="smaller"] {
+  font-size: smaller;
+}
+.oflPOSTable li {
+  padding-top: 12px;
+  padding-bottom: 6px;
+  border-bottom-color: #a0a0a0;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* all divs in the <li> for non-handhelds get the larger font */
+.oflPOSTable li[renderAs="larger"] > div {
+  font-size: larger;
+}
+/* handhelds get normal size font except for a smaller uuid */
+.oflPOSTable li[renderAs="smaller"] > div[uuid] {
+  font-size: smaller;
+}
+
+.oflPOSListRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 4px;
+}
+.oflPOSListCell {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.oflPOSTxtRight {
+  text-align: right;
+}
+.oflPOSTxtCenter {
+  text-align: center;
+}
+
+.busyBox {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0);
+  z-index: 32767;
+  display: none;
+}
+
+.busyBox-NOT_BUSY {
+/*   display: none; */
+  opacity: 0;
+}
+
+.busyBox-SHORT_TERM_BUSY {
+/*   display: flex; */
+  opacity: 0;
+}
+
+.busyBox-LONG_TERM_BUSY {
+/*   display: flex; */
+  justify-content: center;
+  align-items: center;
+  animation: fadein .2s;
+  background-color: rgba(0, 0, 0, .40);
+  transition: opacity 1s ease-in-out;
+}
+
+.busyBoxSpinner {
+  display: block;
+  border-radius: 50%;
+  border-top: 16px solid #FCFCFC;
+  border-right: 16px solid #444444;
+  border-bottom: 16px solid #444444;
+  border-left: 16px solid #444444;
+  width: 30px;
+  height: 30px;
+  animation: busyBoxSpin 1.2s linear infinite;
+}
+
+@keyframes busyBoxSpin {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+input[type=checkbox] {
+  /* This css section is here to fix a weird iOS rendering issue with check boxes where they are missing their left border. 
+     There is no obvious reasoning behind how it actually fix the issue. Its magic!!! */
+  -webkit-transform: translate(0px);
+  transform: translate(0px);
+}
+
+.grid:after {
+  content:"";
+  display: table;
+  clear: both;
+}
+
+.gridTable {  
+  display: table;
+  width: 100%;
+}
+
+.gridTable:after {
+  content:"";
+  display: table;
+  clear: both;
+}
+
+.gridRow {
+  display: table-row;
+}
+
+.saleLineItemImage {
+  max-height: 45px;
+  width: 40px;
+  float: left;
+  margin-right: 5px;
+}
+
+.gwt-SuggestBoxPopup {
+  background-color: #303030;
+  border-radius: 5px;
+  border: 1px solid #808080;
+  /* With modal popups on tablet, the popup was showing up behind the modal overlay, so we need to increase 
+     the z-index here to account for that and ensure that the suggest popup always shows on top. */ 
+  z-index: 1000;
+}
+
+.gwt-SuggestBoxPopup .item {
+  padding: 6px;
+  color: white;
+  cursor: default;
+  font-size: 12pt;
+}
+
+.gwt-SuggestBoxPopup .item-selected {
+  background-color: #8B8580;
+}
+
+.generalListHeader {
+  background-color: rgb(80, 80, 80);
+  padding: 5px 10px;
+}
+
+.textAreaEnhancedReadOnly {
+  -webkit-flex-grow: 1;
+  background: white;
+  border: 1px darkgray solid;
+  border-radius: 5px;
+  height: 180px;
+  white-space: normal;  
+}
+
+.viewportPromptText {
+  padding-left: 10px;
+  color: white;
+ }
+ 
+.simpleActivityLabel {
+  font-size: .85em;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-left: 4px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.promptNotifyListItem {
+  font-size: 14pt;
+  margin-left: 20px;
+/*   color: silver; */
+  text-overflow: ellipsis;
+  list-style-type: none;
+}
+
+.copyrightNoticeText {
+  font-size: 12px;
+  text-align: left; /* In case textx-align: start below is not supported. */
+  text-align: start;
+}
+
+.validationErrorTextColor {
+  /*   color: rgb(182, 37, 37); */
+}
+
+.configScreen .notifyPromptValidations {
+  font-weight: bold;
+  text-align: left;
+}
+
+.notifyPromptValidations {
+  text-align: left;
+}
+
+.hdeMessageLabel {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;  
+  color: white;
+  word-wrap:break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 81%; 
+  height: 250px;
+}
+
+.hdeMessageCallHelpdeskLabel {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;  
+  color: white;
+  width: 81%;
+}
+
+.menuTreeNodeCellImage {
+  min-width: 36px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.leftSideDialogContainer {
+  padding-top: 149px;
+  padding-left: 3px;
+  padding-right: 20px;
+  padding-bottom: 38px;
+  -webkit-flex-direction: row;
+}
+
+.rightSideDialogContainer {
+  padding-top: 48px;
+  padding-left: 20px;
+  padding-right: 8px;
+  padding-bottom: 38px;
+  align-items: flex-end;
+}
+
+.slideInMenuContainer {
+  -webkit-justify-content: flex-end;
+  -webkit-flex-flow: row;
+  padding-top: 48px;
+  padding-bottom: 30px;
+}
+
+.slideInFromLeftContainer {
+  -webkit-justify-content: flex-start;
+  -webkit-flex-flow: row;
+  padding-top: 48px;
+  padding-bottom: 30px;
+}
+
+.simpleDialogContainer {
+  flex-direction: column;
+}
+
+.slideFromBottom {
+  -webkit-flex-direction: column-reverse;
+}
+
+.progressBarContainer {
+  display: -webkit-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progressBarOuterDiv {
+  display: -webkit-flex;
+  background-color: white;
+  height: 12px;
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.scan2cfgHeading {
+  font-size: 18px;
+  padding-top: 12px;
+  text-decoration: underline;
+}
+
+.scan2cfgWarning {
+  color: darkred;
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+.scan2cfgTable {
+  table-layout: fixed;
+  width: 100%;
+  word-break: break-all;
+}
+
+.scan2cfgCell {
+  font-size: 14px;
+  padding-left: 8px;
+  vertical-align: text-top;
+}
+
+.scan2cfgCell[has-value=false] {
+  font-style: italic;
+}
+
+.scan2cfgCell[has-value=true] {
+  
+}
+
+.scan2cfgCell[new-value=true] {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+a:-webkit-any-link {
+  color: inherit;
+  cursor: pointer;
+}

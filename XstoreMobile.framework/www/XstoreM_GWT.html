@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=480, initial-scale=1, user-scalable=no">
+
+	<meta name="format-detection" content="telephone=no" />
+	
+	<!-- TODO: .css cleanup -->
+    <link type="text/css" rel="stylesheet" href="XstoreM_GWT.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <title>Xstore</title>
+    
+    <!--                                           -->
+    <!-- This script loads your compiled module.   -->
+    <!-- If you add any GWT meta tags, they must   -->
+    <!-- be added before this line.                -->
+    <!--                                           -->
+    
+    <!-- Redirect any JavaScript errors to the console log -->
+    <script type="text/javascript">
+    window.onerror = function(message, url, lineNumber) {
+        console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+    }
+	</script>
+    
+    <script type="text/javascript" language="javascript" src="i18n.js"></script>
+    <script type="text/javascript" language="javascript" src="countryprops.js"></script>
+    <script type="text/javascript" language="javascript" src="version.js"></script>
+    <script type="text/javascript" language="javascript" src="qrcode.js"></script>
+    <script type="text/javascript" language="javascript" src="xmqrcode.js"></script>
+    <script type="text/javascript" language="javascript" src="cordova.js"></script>
+    <script type="text/javascript" language="javascript" src="xstorem_gwt/xstorem_gwt.nocache.js"></script>
+    
+    <!-- Callback to handle/detect Xstore Mobile being launched from another app -->
+    <script type="text/javascript">
+      var appLaunchedCallback;
+    
+      <!-- The slight delay here is to avoid network connection errors -->
+      <!-- TODO investigate further -->
+      function handleOpenURL(url) {
+          setTimeout(function() {
+            appLaunchedCallback(url);
+          }, 100);
+      }
+       
+      if (!!window['Windows']) {
+          Windows.UI.WebUI.WebUIApplication.onactivated = function (ev) {
+              console.log("WebUIApplication.onactivated fired");
+              
+              if (ev.kind == Windows.ApplicationModel.Activation.ActivationKind.protocol) {
+                  console.log("activated with protocol args");
+                  console.log("Calling back to launching app with URI: " + ev.uri.rawUri);
+                  appLaunchedCallback(ev.uri.rawUri);
+              }
+              
+              // store this ev object so that you can invoke it later
+          }
+      }
+      
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'F4' && e.altKey) {
+          e.preventDefault()
+        }
+      })
+    </script>
+  </head>
+
+  <body>    
+    <!-- OPTIONAL: include this if you want history support -->
+    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+    
+    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+    <noscript>
+      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+        Your web browser must have JavaScript enabled
+        in order for this application to display correctly.
+      </div>
+    </noscript>
+    
+  </body>
+</html>
