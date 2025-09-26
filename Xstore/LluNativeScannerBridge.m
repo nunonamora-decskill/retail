@@ -3,7 +3,7 @@
 #import "LluScreenDetectionHelper.h"
 
 @interface LluNativeScannerBridge()
-@property (nonatomic, weak) WKWebView *webView;
+@property (nonatomic, weak) WKWebView *wkWebView;
 @property (nonatomic, assign) BOOL attached;
 @end
 
@@ -15,17 +15,33 @@
     // CDVWKWebViewEngine exposes an internal WKWebView; Cordova webView may be a wrapper.
     if ([self.webView isKindOfClass:[WKWebView class]]) {
         // In newer Cordova, self.webView is WKWebView
-        _webView = (WKWebView *)self.webView;
+        _wkWebView = (WKWebView *)self.webView;
     } else if ([self.webViewEngine respondsToSelector:@selector(engineWebView)]) {
         // Older engines expose engineWebView
         UIView *view = [self.webViewEngine performSelector:@selector(engineWebView)];
         if ([view isKindOfClass:[WKWebView class]]) {
-            _webView = (WKWebView *)view;
+            _wkWebView = (WKWebView *)view;
         }
     }
-    if (_webView && !_attached) {
-        [_webView.configuration.userContentController addScriptMessageHandler:self name:@"lluscanner"];
+    if (_wkWebView && !_attached) {
+        [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"lluscanner"];
         _attached = YES;
+    }
+}
+
+- (void)onReset {
+    // Called when the WebView navigates to a new page or is reloaded
+    if (_wkWebView && _attached) {
+        [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"lluscanner"];
+        _attached = NO;
+    }
+}
+
+- (void)dispose {
+    // Called when the plugin is disposed
+    if (_wkWebView && _attached) {
+        [_wkWebView.configuration.userContentController removeScriptMessageHandlerForName:@"lluscanner"];
+        _attached = NO;
     }
 }
 
@@ -38,7 +54,7 @@
         BOOL newScanner = [LluRemoteConfigHelper isNewScannerEnabled];
         NSString *mode = newScanner ? @"native" : @"legacy";
         NSString *js = [NSString stringWithFormat:@"window.__lluScanner && window.__lluScanner.resolveMode && window.__lluScanner.resolveMode('%@');", mode];
-        [self.webView evaluateJavaScript:js completionHandler:nil];
+        [self.wkWebView evaluateJavaScript:js completionHandler:nil];
     } else if ([action isEqualToString:@"scan"]) {
         NSDictionary *options = dict[@"options"];
         NSString *inputType = nil;
@@ -60,61 +76,78 @@
         if (hasContinuous) {
             [self presentLluScanner:inputType isContinuousScan:isContinuous];
         } else {
-            [LluScreenDetectionHelper detectModeInWebView:self.webView completion:^(LluScreenMode mode) {
+            [LluScreenDetectionHelper detectModeInWebView:self.wkWebView completion:^(LluScreenMode mode) {
                 [self presentLluScanner:inputType isContinuousScan:(mode == LluScreenModeContinuous)];
             }];
         }
     }
 }
 
-- (BOOL)isNewScannerEnabled {
-    NSDictionary *managed = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"com.apple.configuration.managed"] ?: @{};
-    id feature = managed[@"feature"];
-    if ([feature isKindOfClass:[NSDictionary class]]) {
-        NSNumber *flag = ((NSDictionary *)feature)[@"newScanner"];
-        if ([flag isKindOfClass:[NSNumber class]]) { return [flag boolValue]; }
-    }
-    NSNumber *flat = managed[@"feature.newScanner"];
-    if ([flat isKindOfClass:[NSNumber class]]) { return [flat boolValue]; }
-    return NO;
-}
-
 #pragma mark - Present scanner (stub)
 
 - (void)presentLluScanner:(NSString *)inputType isContinuousScan:(BOOL)isContinuousScan {
     // Present a simple AVFoundation-based scanner
-    UIViewController *root = UIApplication.sharedApplication.keyWindow.rootViewController;
-    while (root.presentedViewController) { root = root.presentedViewController; }
-    LluScannerViewController *vc = [LluScannerViewController new];
-    vc.continuous = isContinuousScan;
     __weak typeof(self) weakSelf = self;
-    vc.onScan = ^(NSDictionary *payload) {
-        // Return to JS
-        NSError *err = nil;
-        NSData *data = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&err];
-        if (!err && data) {
-            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSString *js = [NSString stringWithFormat:@"window.__lluScanner && window.__lluScanner.resolve && window.__lluScanner.resolve(%@);", json];
-            [weakSelf.webView evaluateJavaScript:js completionHandler:nil];
-        }
-        // Forward to server
-        Class apiClass = NSClassFromString(@"PosHardwareAPI");
-        if (apiClass && [apiClass respondsToSelector:@selector(sharedInstance)]) {
-            id api = [apiClass performSelector:@selector(sharedInstance)];
-            if ([api respondsToSelector:@selector(postHardwareEvent:eventData:)]) {
-                #pragma clang diagnostic push
-                #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                [api performSelector:@selector(postHardwareEvent:eventData:) withObject:@"kCordovaCameraBarcodeScanner" withObject:payload];
-                #pragma clang diagnostic pop
+    void (^presentBlock)(void) = ^{
+        UIViewController *root = [weakSelf topViewController];
+        if (!root) { return; }
+        LluScannerViewController *vc = [LluScannerViewController new];
+        vc.continuous = isContinuousScan;
+        vc.inputType = inputType;
+        vc.onScan = ^(NSDictionary *payload) {
+            // Return to JS
+            NSError *err = nil;
+            NSData *data = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&err];
+            if (!err && data) {
+                NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSString *js = [NSString stringWithFormat:@"window.__lluScanner && window.__lluScanner.resolve && window.__lluScanner.resolve(%@);", json];
+                [weakSelf.wkWebView evaluateJavaScript:js completionHandler:nil];
+            }
+            // Forward to server
+            Class apiClass = NSClassFromString(@"PosHardwareAPI");
+            if (apiClass && [apiClass respondsToSelector:@selector(sharedInstance)]) {
+                id api = [apiClass performSelector:@selector(sharedInstance)];
+                if ([api respondsToSelector:@selector(postHardwareEvent:eventData:)]) {
+                    #pragma clang diagnostic push
+                    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                    [api performSelector:@selector(postHardwareEvent:eventData:) withObject:@"kCordovaCameraBarcodeScanner" withObject:payload];
+                    #pragma clang diagnostic pop
+                }
+            }
+        };
+        vc.onClose = ^{
+            // no-op
+        };
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [root presentViewController:nav animated:YES completion:nil];
+    };
+    if ([NSThread isMainThread]) {
+        presentBlock();
+    } else {
+        dispatch_async(dispatch_get_main_queue(), presentBlock);
+    }
+}
+
+- (UIViewController *)topViewController {
+    UIViewController *root = nil;
+    if (@available(iOS 13.0, *)) {
+        NSSet *connectedScenes = UIApplication.sharedApplication.connectedScenes;
+        for (UIScene *scene in connectedScenes) {
+            if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
+                UIWindowScene *windowScene = (UIWindowScene *)scene;
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) { root = window.rootViewController; break; }
+                }
+                if (root) { break; }
             }
         }
-    };
-    vc.onClose = ^{
-        // no-op
-    };
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    nav.modalPresentationStyle = UIModalPresentationFullScreen;
-    [root presentViewController:nav animated:YES completion:nil];
+    }
+    if (!root) {
+        root = UIApplication.sharedApplication.keyWindow.rootViewController;
+    }
+    while (root.presentedViewController) { root = root.presentedViewController; }
+    return root;
 }
 
 @end

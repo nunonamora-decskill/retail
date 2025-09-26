@@ -8,6 +8,7 @@ typedef void(^LluScannerClosed)(void);
 // If YES, keep scanning and invoke onScan for each detection. Caller dismisses.
 // If NO, stop after first result, invoke onScan once, and auto-dismiss.
 @property (nonatomic, assign) BOOL continuous;
+@property (nonatomic, copy) NSString *inputType; // optional: "barcode", "qrcode", etc.
 @property (nonatomic, copy) LluScannerResult onScan;
 @property (nonatomic, copy) LluScannerClosed onClose;
 
