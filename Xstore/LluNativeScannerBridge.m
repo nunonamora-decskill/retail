@@ -9,6 +9,7 @@
 
 @implementation LluNativeScannerBridge
 
+#if __has_include(<Cordova/CDVPlugin.h>)
 // Cordova lifecycle
 - (void)pluginInitialize {
     [super pluginInitialize];
@@ -23,6 +24,20 @@
             _wkWebView = (WKWebView *)view;
         }
     }
+    [self attachHandlerIfPossible];
+}
+#endif
+
+- (instancetype)initWithWebView:(WKWebView *)webView {
+    self = [super init];
+    if (self) {
+        _wkWebView = webView;
+        [self attachHandlerIfPossible];
+    }
+    return self;
+}
+
+- (void)attachHandlerIfPossible {
     if (_wkWebView && !_attached) {
         [_wkWebView.configuration.userContentController addScriptMessageHandler:self name:@"lluscanner"];
         _attached = YES;
